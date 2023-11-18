@@ -62,8 +62,6 @@ Revision History
 The Website should be able to handle about 200 concurrent users
 ## 5.2 Safety Requirements 
 The website shall only be accessed by zewailcity students or staff
-## 5.3 Security Requirements 
-## 5.4 Software Quality Attributes ##
 ## 5.5 Legal and Regulatory Requirements
 ### 5.5.1 Data Protection
 &nbsp; &nbsp; Compliance with Egyptian data protection law. ( Law No. 151 of 2020 )
