@@ -66,6 +66,16 @@ Revision History
 1. Students can access old exams for the subject (if it's available).
 1. Students can download an offline version (PDF/Doc) of the exams (if it's available).
 1. Students can take a short quizzes related to certain subject.
+1. System will auto-grade quizzes taken by students.
+1. System will compliment (rizz) if the student passes the exam/quiz.
+1. System will give a motivation message if the student fails the exam/quiz.
+1. System will provide students with a detailed record of their performance in exams and quizzes over time.
+1. Instructors will provide questions for quizzes and exams to the students.
+1. Instructors will provide answers for quizzes and exams to the students.
+1. Instructors can edit questions/answers for an existing exam or quiz (exam/quiz must be provided by them).
+1. Instructors can preview all exams/quizzes provided by them.
+1. System will provide instructors with an overview for students performance in certain exam/quiz.
+1. System will provide a convenient way for students to contact Instructor who provided the exam/quiz.
 
 # 5. Nonfunctional Requirements #
 ## 5.1 Performance Requirements 
