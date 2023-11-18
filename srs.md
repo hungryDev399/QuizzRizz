@@ -56,6 +56,16 @@ Revision History
 ## 3.4 Communication Interfaces ##
 
 # 4 System Features #
+1. Users can sign-in with Zewail City account.
+1. Students can choose their school.
+1. Students can choose their major (if exists).
+1. Students can choose their concentrations (if exists).
+1. The Website shall provide a clean and organized UI to browse subjects.
+1. Students can access slides for the subject.
+1. Students can access recorded videos for the subject (if it's available).
+1. Students can access old exams for the subject (if it's available).
+1. Students can download an offline version (PDF/Doc) of the exams (if it's available).
+1. Students can take a short quizzes related to certain subject.
 
 # 5. Nonfunctional Requirements #
 ## 5.1 Performance Requirements 
