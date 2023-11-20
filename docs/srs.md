@@ -19,10 +19,10 @@ Revision History
 <th>Version</th>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Youssef Helal, Amr Mamdouh, Mohamed Elnaggar</td>
+<td>20 Nov 2023</td>
+<td>Initial version</td>
+<td>1.0</td>
 </tr>
 <tr>
 <td></td>
@@ -35,24 +35,16 @@ Revision History
 # 1 Introduction #
 ## 1.1 Purpose ##
 ## 1.2 Document Conventions ##
-## 1.3 Glossary
-## 1.4 Intended Audience and Reading Suggestions ##
 ## 1.5 Product Scope ##
-## 1.6 References ##
 
 # 2 Overall Description #
 ## 2.1 Product Perspective ##
 ## 2.2 Product Functions ##
-## 2.3 User Classes and Characteristics ##
-## 2.4 Operating Environment ##
-## 2.5 Design and Implementation Constraints ##
 ## 2.6 User Documentation ##
 ## 2.7 Assumptions and Dependencies ##
 
 # 3 External Interface Requirements #
 ## 3.1 User Interfaces ##
-## 3.2 Hardware Interfaces ##
-## 3.3 Software Interfaces ##
 ## 3.4 Communication Interfaces ##
 
 # 4 System Features #
