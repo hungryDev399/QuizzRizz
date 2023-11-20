@@ -52,7 +52,7 @@ Revision History
 1. Students can choose their school.
 1. Students can choose their major (if exists).
 1. Students can choose their concentrations (if exists).
-1. The Website shall provide a clean and organized UI to browse subjects.
+1. Students can write reviews for the Instructors.
 1. Students can access slides for the subject.
 1. Students can access recorded videos for the subject (if it's available).
 1. Students can access old exams for the subject (if it's available).
