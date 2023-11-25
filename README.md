@@ -7,3 +7,4 @@ city.
 ## Project Design
 - [Software Requirements Specification (SRS) Document](docs/srs.md)
 - [Software Design Specification (SDS) Document](docs/sds.md)
+- [Graphical User Interface (GUI)](UI/)
