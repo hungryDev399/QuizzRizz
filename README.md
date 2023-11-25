@@ -7,4 +7,7 @@ city.
 ## Project Design
 - [Software Requirements Specification (SRS) Document](docs/srs.md)
 - [Software Design Specification (SDS) Document](docs/sds.md)
-- [Graphical User Interface (GUI)](UI/)
+- Graphical User Interface
+    - [Figma GUI file](https://www.figma.com/file/0HLZYHoa220xjWzqtIH4d7/QuizzRizz-GUI-design?type=design&node-id=0%3A1&mode=design&t=sCtxnWVazLpLDEy6-1)
+    - [PNG Images](UI/)
+  
