@@ -25,10 +25,10 @@ Revision History
 <td>1.0</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>Youssef Helal, Amr Mamdouh, Mohamed Elnaggar</td>
+<td>9 Dec 2023</td>
+<td>Class Diagram : <br> 1. Added User Authenication<br> 2. Added Question interferance</td>
+<td>1.0</td>
 </tr>
 </table>
 
