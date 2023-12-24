@@ -1,0 +1,1 @@
+from .your_model_serializer import YourModelSerializer
