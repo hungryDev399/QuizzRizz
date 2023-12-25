@@ -12,7 +12,11 @@ def student_login(request):
         try:
             student = Student.objects.get(
                 student_id=request.data['student_id'])
-            return Response({'success': 'student with this id exists.'})
+            if student.password == request.data['password']:
+                return Response({'success': 'student with this id exists.'})
+            else:
+                return Response({'error': 'Icnorrect password'})
+
         except ObjectDoesNotExist:
             return Response({'error': 'student with this id does not exist.'})
 
@@ -24,6 +28,9 @@ def instructor_login(request):
         try:
             instructor = Instructor.objects.get(
                 instructor_id=request.data['instructor_id'])
-            return Response({'success': 'instructor with this id exists.'})
+            if instructor.password == request.data['password']:
+                return Response({'success': 'instructor with this id exists.'})
+            else:
+                return Response({'error': 'Icnorrect password'})
         except ObjectDoesNotExist:
             return Response({'error': 'instructor with this id does not exist.'})
