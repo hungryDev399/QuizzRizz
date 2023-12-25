@@ -35,15 +35,15 @@ export default function signUp() {
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
                                     School
                                 </label>
-                                <DropDown menuName="school" options={["CSAI", "Science", "Business"]}/>
+                                <DropDown width= "w-[350px]" defaultOption="choose your school" options={["CSAI", "Science", "Business"]}/>
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
                                     Major
                                 </label>
-                                <DropDown menuName="Major" options={["CSAI", "Science", "Business"]}/>
+                                <DropDown width= "w-[350px]" defaultOption="choose your major" options={["CSAI", "Science", "Business"]}/>
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
                                     Concentrations
                                 </label>
-                                <DropDown menuName="Concentrations" options={["CSAI", "Science", "Business"]}/>
+                                <DropDown width= "w-[350px]" defaultOption="choose your concentrations" options={["CSAI", "Science", "Business"]}/>
                                 <input type="submit" className="text-zinc-50 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch rounded bg-black mt-8 px-8 py-4 max-md:px-5"/>
                             </form>
 						</div>
