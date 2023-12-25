@@ -1,2 +1,2 @@
 from .your_model import YourModel
-from .user import User
+from .user import User, Instructor, Student

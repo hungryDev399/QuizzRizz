@@ -1,1 +1,2 @@
 from .your_model_serializer import YourModelSerializer
+from .user_serializer import StudentSerializer, InstructorSerializer
