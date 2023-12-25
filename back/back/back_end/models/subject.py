@@ -21,6 +21,13 @@ class SubjectService:
             return None
 
     @staticmethod
+    def get_subject_by_id(subject_id):
+        try:
+            return Subject.objects.get(id=subject_id)
+        except Subject.DoesNotExist:
+            return None
+
+    @staticmethod
     def update_subject(course_code, name=None):
         subject = SubjectService.get_subject_by_course_code(course_code)
         if subject is not None:

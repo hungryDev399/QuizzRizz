@@ -1,3 +1,4 @@
+import json
 from django.db import models
 from abc import ABC, abstractmethod
 
@@ -9,12 +10,12 @@ class QuestionInterface(ABC):
 
 
 class MCQ(QuestionInterface):
-    def __init__(self, choices, correct_answer):
+    def __init__(self, correct_answer, choices=[]):
         self.choices = choices
         self.correct_answer = correct_answer
 
-    def check_answer(self, answer_index):
-        return self.choices[answer_index] == self.correct_answer
+    def check_answer(self, correct_answer):
+        return self.correct_answer.lower() == correct_answer.lower()
 
 
 class Essay(QuestionInterface):
@@ -30,10 +31,16 @@ class Question(models.Model):
         ('MCQ', 'Multiple Choice'),
         ('ESSAY', 'Essay'),
     )
-
     question_text = models.CharField(max_length=200)
     question_type = models.CharField(max_length=5, choices=QUESTION_TYPES)
     correct_answer = models.CharField(max_length=200)
+    choices = models.TextField(blank=True, null=True)
+
+    def set_choices(self, choices_list):
+        self.choices = json.dumps(choices_list)
+
+    def get_choices(self):
+        return json.loads(self.choices)
 
 
 class QuestionService:

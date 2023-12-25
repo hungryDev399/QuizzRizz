@@ -13,7 +13,7 @@ def student_login(request):
             student = Student.objects.get(
                 student_id=request.data['student_id'])
             if student.password == request.data['password']:
-                return Response({'success': 'student with this id exists.'})
+                return Response({'success': 'Login Successful.'})
             else:
                 return Response({'error': 'Icnorrect password'})
 

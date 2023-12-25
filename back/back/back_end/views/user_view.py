@@ -3,6 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from ..serializers import StudentSerializer, InstructorSerializer
+from ..models import Student, Instructor
 
 
 @api_view(['POST',])
@@ -44,3 +45,13 @@ def registration_instructor_view(request):
         else:
             data = serializer.errors
         return Response(data)
+
+
+@api_view(['GET',])
+def get_instructor_by_id(request, instructor_id):
+    try:
+        instructor = Instructor.objects.get(instructor_id=instructor_id)
+    except Instructor.DoesNotExist:
+        return Response({'error': 'Instructor does not exist'})
+    serializer = InstructorSerializer(instructor)
+    return Response(serializer.data)
