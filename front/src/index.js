@@ -28,6 +28,7 @@ root.render(
         <Route path="/quizzes/results" element={<Results />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/resources/:subjectID" element={<Resource />} />
+        <Route path="/:courseCode/:lectures" element={<Resource />} />
       </Routes>
       <Footer />
     </BrowserRouter>
