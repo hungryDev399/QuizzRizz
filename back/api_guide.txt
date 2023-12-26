@@ -45,7 +45,8 @@ get from:
 get all subjects: http://127.0.0.1:8000/api/subjects
 get all slides: http://127.0.0.1:8000/api/subjects/CSAI101/slides
 get all recorded videos: http://127.0.0.1:8000/api/subjects/CSAI101/recorded_videos
-get all past exams: http://127.0.0.1:8000/api/subjects/CSAI101/past_videos
+get all past exams: http://127.0.0.1:8000/api/subjects/CSAI102/past_exams
+example out: [{"name":"some exam","type":"past_exam","material_id":"sadsa1d","link":"https://docs.djangoproject.com/en/5.0/","major":"CSAI","subject":2}]
 get all quizzes: http://127.0.0.1:8000/api/quizzes
 get questions for a quiz: http://127.0.0.1:8000/api/quizzes/<quiz_id(int)>/questions
 get answers for a quiz: http://127.0.0.1:8000/api/quizzes/<quiz_id(int)>/answers (returns objects of question_id: answer)
