@@ -6,8 +6,11 @@ import './index.css';
 import App from './App';
 import SignIn from './signIn';
 import SignUp from './signUp';
-import Quizzes from './quizzes';
-import Quiz from './quiz';
+import Quizzes from './quizzes/index';
+import Quiz from './quizzes/[quizId]';
+import Results from './quizzes/results';
+import Resources from './resources/index';
+import Resource from './resources/[subjectId]';
 import NavBar from './components/NavBar';
 import Footer from './components/footer';
 
@@ -21,7 +24,10 @@ root.render(
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/quizzes" element={<Quizzes />} />
-        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/quizzes/:quizID" element={<Quiz />} />
+        <Route path="/quizzes/results" element={<Results />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/resources/:subjectID" element={<Resource />} />
       </Routes>
       <Footer />
     </BrowserRouter>
