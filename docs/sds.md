@@ -50,6 +50,7 @@ Class Diagram :
 - [Concept Diagram](diagrams/concept-diagram.md)
 - [Usecase Diagram](diagrams/usecase-diagram.md)
 - [CRC Cards](diagrams/CRC-Cards.md)
+- [Sequence diagrams](diagrams/sequence-diagram.md)
 
 ## Design Diagrams
 
