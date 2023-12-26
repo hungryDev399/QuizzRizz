@@ -1,0 +1,54 @@
+
+pip freeze > requirments.txt  after installing each package
+
+edits: remove getAutoGradedQuizzes from Quizzes
+edits: level_of_diffuclty
+edits: make qustions a many to many with quizzes
+material types:
+slide
+past_exam
+recorded_video
+
+post to:
+http://127.0.0.1:8000/api/register/instructor 
+example input:
+{
+    "email": "teststudent@example.com",
+    "name": "Test Student",
+    "phone_number": "1234567890",
+    "national_id": "987654321",
+    "school": "CSAI",
+    "major": "CSAI",
+    "concentration": "SWD",
+    "instructor_id": "12345",
+    "password": "testpassword"
+}
+http://127.0.0.1:8000/api/register/student
+http://127.0.0.1:8000/api/login/student
+example input:
+{
+    "student_id": "202216969",
+    "password": "gamed"
+}
+http://127.0.0.1:8000/api/login/instructor
+http://127.0.0.1:8000/api/quizzes/<int:quiz_id>/<int:student_id> :
+returns the best grade
+example answer to be sent: 
+{
+    "answers": {
+        "1": "fine",
+        "2": "yes"
+    }
+}
+
+get from:
+get all subjects: http://127.0.0.1:8000/api/subjects
+get all slides: http://127.0.0.1:8000/api/subjects/CSAI101/slides
+get all recorded videos: http://127.0.0.1:8000/api/subjects/CSAI101/recorded_videos
+get all past exams: http://127.0.0.1:8000/api/subjects/CSAI101/past_videos
+get all quizzes: http://127.0.0.1:8000/api/quizzes
+get questions for a quiz: http://127.0.0.1:8000/api/quizzes/<quiz_id(int)>/questions
+get answers for a quiz: http://127.0.0.1:8000/api/quizzes/<quiz_id(int)>/answers (returns objects of question_id: answer)
+get subject by id: http://127.0.0.1:8000/api/subjects/<int:subject_id>
+get insructor by id: http://127.0.0.1:8000/api/instructors/<str:instructor_id>
+
