@@ -10,7 +10,9 @@ import Quizzes from './quizzes/index';
 import Quiz from './quizzes/[quizId]';
 import Results from './quizzes/results';
 import Resources from './resources/index';
-import Resource from './resources/[subjectId]';
+import Slides from './resources/slides/[subjectId]';
+import Videos from './resources/videos/[subjectId]';
+import Exams from './resources/exams/[subjectId]';
 import NavBar from './components/NavBar';
 import Footer from './components/footer';
 
@@ -27,7 +29,9 @@ root.render(
         <Route path="/quizzes/:quizID" element={<Quiz />} />
         <Route path="/quizzes/results" element={<Results />} />
         <Route path="/resources" element={<Resources />} />
-        <Route path="/resources/:subjectID" element={<Resource />} />
+        <Route path="/resources/slides/:subjectId" element={<Slides />} />
+        <Route path="/resources/videos/:subjectId" element={<Videos />} />
+        <Route path="/resources/exams/:subjectId" element={<Exams />} />
       </Routes>
       <Footer />
     </BrowserRouter>
