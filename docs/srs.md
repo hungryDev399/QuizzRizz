@@ -1,4 +1,4 @@
-# System Requirements Specifications #
+# System Requirements Specifications
 
 <Project>
 
@@ -11,6 +11,7 @@ Prepared by <author>
 <date created>
 
 Revision History
+
 <table>
 <tr>
 <th>Name</th>
@@ -27,22 +28,32 @@ Revision History
 
 </table>
 
-# 1 Introduction #
-## 1.1 Purpose ##
-## 1.2 Document Conventions ##
-## 1.5 Product Scope ##
+# 1 Introduction
 
-# 2 Overall Description #
-## 2.1 Product Perspective ##
-## 2.2 Product Functions ##
-## 2.6 User Documentation ##
-## 2.7 Assumptions and Dependencies ##
+## 1.1 Purpose
 
-# 3 External Interface Requirements #
-## 3.1 User Interfaces ##
-## 3.4 Communication Interfaces ##
+## 1.2 Document Conventions
 
-# 4 System Features #
+## 1.5 Product Scope
+
+# 2 Overall Description
+
+## 2.1 Product Perspective
+
+## 2.2 Product Functions
+
+## 2.6 User Documentation
+
+## 2.7 Assumptions and Dependencies
+
+# 3 External Interface Requirements
+
+## 3.1 User Interfaces
+
+## 3.4 Communication Interfaces
+
+# 4 System Features
+
 1. Users can sign-in with Zewail City account.
 1. Students can choose their school.
 1. Students can choose their major (if exists).
@@ -64,15 +75,22 @@ Revision History
 1. System will provide instructors with an overview for students performance in certain exam/quiz.
 1. System will provide a convenient way for students to contact Instructor who provided the exam/quiz.
 
-# 5. Nonfunctional Requirements #
-## 5.1 Performance Requirements 
+# 5. Nonfunctional Requirements
+
+## 5.1 Performance Requirements
+
 The Website should be able to handle about 200 concurrent users
-## 5.2 Safety Requirements 
+
+## 5.2 Safety Requirements
+
 The website shall only be accessed by zewailcity students or staff.
+
 ## 5.5 Legal and Regulatory Requirements
+
 ### 5.5.1 Data Protection
+
 &nbsp; &nbsp; Compliance with Egyptian data protection law. ( Law No. 151 of 2020 )
 
-# 6 Other Requirements #
+# 6 Other Requirements
 
 <!--appendix-->
