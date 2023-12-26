@@ -11,7 +11,7 @@ export default function App() {
 			<GettingStarted />
 			<OurStory />
 			<FeatureSelection />
-			<NtPlaceHolder />
+			<NtPlaceHolder content="Shape Your Future" />
 			<ContactForm />
 		</>
 	);
