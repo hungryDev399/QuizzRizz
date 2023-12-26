@@ -42,7 +42,7 @@ def get_all_recorded_videos(request, course_code):
 
 
 @api_view(['GET'])
-def get_past_exams(request, course_code):
+def get_all_past_exams(request, course_code):
     materials = SubjectService.get_all_past_exams(course_code)
     if materials is not None and materials != []:
         serializer = MaterialSerializer(materials, many=True)

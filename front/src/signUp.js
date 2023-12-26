@@ -1,6 +1,29 @@
 import React from "react";
 import DropDown from "./components/DropDown";
 export default function signUp() {
+    // const [choices, setChoices] = useState({});
+    // const handleChoiceSelection = (questionId, selectedChoice) => {
+	// 	setChoices(prevChoices => ({
+	// 		...prevChoices,
+	// 		[questionId]: selectedChoice
+	// 	}));
+	// };
+
+    // const handleSubmit = () => {
+	// 	const quiz_id = quizID;
+	// 	const student_id = 202201863; 
+	// 	fetch(`http://127.0.0.1:8000/api/quizzes/${quiz_id}/${student_id}`, {
+	// 		method: 'POST',
+	// 		headers: {
+	// 		'Content-Type': 'application/json'
+	// 		},
+	// 		body: JSON.stringify({answers})
+	// 	})
+	// 	.then(response => response.json())
+	// 	.then(data => { navigate('/quizzes/results', { state:  { data } }) })
+	// 	.catch(error => { console.error('Error:', error) });
+	// };
+
 	return (
 		<div className="justify-between">
 			<div className="flex max-md:flex-col max-md:items-stretch max-md:gap-0">
@@ -12,10 +35,27 @@ export default function signUp() {
 							</div>
                             <form className="flex flex-col items-stretch mt-8 max-md:max-w-full">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                    Name
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="Joe"
+                                />
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
                                     Email
                                 </label>
                                 <input
                                     type="email"
+                                    id="email"
+                                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="s-firstname.lastname@zeawilcity.edu.eg"
+                                />
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
+                                    Phone number
+                                </label>
+                                <input
+                                    type="number"
+                                    id="phone"
                                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="s-firstname.lastname@zeawilcity.edu.eg"
                                 />
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
@@ -23,6 +63,7 @@ export default function signUp() {
                                 </label>
                                 <input
                                     type="password"
+                                    id="password"
                                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="******************"
                                 />
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
@@ -30,7 +71,24 @@ export default function signUp() {
                                 </label>
                                 <input
                                     type="password"
+                                    id="confirm_password"
                                     className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="******************"
+                                />
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
+                                    National id
+                                </label>
+                                <input
+                                    type="number"
+                                    id="national_id"
+                                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="12345678901234"
+                                />
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
+                                    University id
+                                </label>
+                                <input
+                                    type="number"
+                                    id="university_id"
+                                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="12345678901234"
                                 />
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
                                     School

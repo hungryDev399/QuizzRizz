@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from .views import YourModelViewSet
 from .views.user_view import registration_student_view, registration_instructor_view, get_instructor_by_id
 from .views.user_login import student_login, instructor_login
-from .views.subject_view import get_all_subjects, get_slides_by_course_code, get_all_recorded_videos, get_subject_by_id
+from .views.subject_view import get_all_subjects, get_slides_by_course_code, get_all_recorded_videos, get_subject_by_id, get_all_past_exams
 from .views.quiz_view import get_all_quizzes, get_quiz_questions_by_id, get_quiz_answers_by_id, grade_quiz
 router = DefaultRouter()
 router.register(r'yourmodels', YourModelViewSet, basename='yourmodel')
@@ -22,6 +22,8 @@ urlpatterns = [
          get_slides_by_course_code, name='get_slides_by_course_code'),
     path('subjects/<str:course_code>/recorded_videos/',
          get_all_recorded_videos, name='get_all_recorded_videos'),
+    path('subjects/<str:course_code>/past_exams/',
+         get_all_past_exams, name='get_all_past_exams'),
     path('subjects/<int:subject_id>',
          get_subject_by_id, name='get_subject_by_id'),
 
