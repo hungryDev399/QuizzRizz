@@ -49,6 +49,7 @@ Class Diagram :
 - [Context Diagram](diagrams/context-diagram.md)
 - [Concept Diagram](diagrams/concept-diagram.md)
 - [Usecase Diagram](diagrams/usecase-diagram.md)
+- [CRC Cards](diagrams/CRC-Cards.md)
 
 ## Design Diagrams
 
