@@ -4,7 +4,7 @@ from .views import YourModelViewSet
 from .views.user_view import registration_student_view, registration_instructor_view, get_instructor_by_id
 from .views.user_login import student_login, instructor_login
 from .views.subject_view import get_all_subjects, get_slides_by_course_code, get_all_recorded_videos, get_subject_by_id, get_all_past_exams
-from .views.quiz_view import get_all_quizzes, get_quiz_questions_by_id, get_quiz_answers_by_id, grade_quiz
+from .views.quiz_view import get_all_quizzes, get_quiz_questions_by_id, get_quiz_answers_by_id, grade_quiz, get_grades_by_student_id
 router = DefaultRouter()
 router.register(r'yourmodels', YourModelViewSet, basename='yourmodel')
 
@@ -34,5 +34,7 @@ urlpatterns = [
          get_quiz_answers_by_id, name='get_quiz_by_id'),
     path('quizzes/<int:quiz_id>/<int:student_id>',
          grade_quiz, name='grade_quiz'),
+    path('grades/<int:student_id>',
+         get_grades_by_student_id, name='get_grades_by_student_id'),
 
 ]

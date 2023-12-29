@@ -3,7 +3,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-from ..serializers import GradeSerializer, QuizSerializer, QuestionSerializer
+from ..serializers import GradeSerializer, QuizSerializer, QuestionSerializer, GradeSerializerByQuiz
 from ..models import Quiz, Question, Grade
 from ..models import QuizService, QuestionService
 from ..models import SubjectService
@@ -47,3 +47,12 @@ def grade_quiz(request, quiz_id, student_id):
         return Response({'grade': grade.grade})
     else:
         return Response({'error': 'Invalid quiz or student id'}, status=400)
+
+
+@api_view(['GET'])
+def get_grades_by_student_id(request, student_id):
+    grades = Grade.objects.filter(student__student_id=student_id)
+    if not grades.exists():
+        return Response({'error': 'Student does not exist'}, status=400)
+    serializer = GradeSerializerByQuiz(grades, many=True)
+    return Response(serializer.data)
