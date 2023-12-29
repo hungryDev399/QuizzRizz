@@ -4,7 +4,7 @@ from .views import YourModelViewSet, QuestionView
 from .views.user_view import registration_student_view, registration_instructor_view, get_instructor_by_id, get_email_by_instructor_id
 from .views.user_login import student_login, instructor_login
 from .views.subject_view import get_all_subjects, get_slides_by_course_code, get_all_recorded_videos, get_subject_by_id, get_all_past_exams
-from .views.quiz_view import get_all_quizzes, get_quiz_questions_by_id, get_quiz_answers_by_id, grade_quiz, get_grades_by_student_id, get_grades_by_quiz_id, get_quizzes_by_instructor_id
+from .views.quiz_view import get_all_quizzes, get_quiz_questions_by_id, get_quiz_answers_by_id, grade_quiz, get_grades_by_student_id, get_grades_by_quiz_id, get_quizzes_by_instructor_id, create_quiz
 from .views import MessageView
 router = DefaultRouter()
 router.register(r'yourmodels', YourModelViewSet, basename='yourmodel')
@@ -44,4 +44,8 @@ urlpatterns = [
     path('quizzes/instructor/<int:instructor_id>', get_quizzes_by_instructor_id),
     path('instructors/<str:instructor_id>/email', get_email_by_instructor_id),
     path('question', QuestionView.update_question),
+    path('question/create', QuestionView.create_question),
+    path('question/delete/<int:question_id>', QuestionView.delete_question),
+    path('quizzes/create', create_quiz)
+
 ]

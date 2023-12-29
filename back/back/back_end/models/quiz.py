@@ -31,8 +31,9 @@ class Grade(models.Model):
 
 class QuizService:
     @staticmethod
-    def create_quiz(subject, instructor, questions):
-        quiz = Quiz(subject=subject, instructor=instructor)
+    def create_quiz(subject, instructor, questions, level_of_difficulty="Unknown"):
+        quiz = Quiz(subject=subject, instructor=instructor,
+                    level_of_difficulty=level_of_difficulty)
         quiz.save()
         quiz.questions.set(questions)
         return quiz
