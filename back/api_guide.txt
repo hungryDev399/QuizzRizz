@@ -52,4 +52,12 @@ get questions for a quiz: http://127.0.0.1:8000/api/quizzes/<quiz_id(int)>/quest
 get answers for a quiz: http://127.0.0.1:8000/api/quizzes/<quiz_id(int)>/answers (returns objects of question_id: answer)
 get subject by id: http://127.0.0.1:8000/api/subjects/<int:subject_id>
 get insructor by id: http://127.0.0.1:8000/api/instructors/<str:instructor_id>
+get student grades by id:http://127.0.0.1:8000/api/grades/<int:student_id>
+example output:
+[
+    {
+        "quiz": 1,
+        "grade": 2
+    }
+]
 
