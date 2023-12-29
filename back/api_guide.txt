@@ -35,6 +35,26 @@ example answer to be sent:
         "2": "yes"
     }
 }
+update a question: http://127.0.0.1:8000/api/question
+example input(note that all fields are optional except for the instructor id):
+{
+    "question_id": 3,
+    "question_text": "What is the capital of France?",
+    "question_type": "MCQ",
+    "correct_answer": "Paris",
+    "choices": ["Paris","Madrid"]
+}
+example out:
+{
+    "success": "Question updated successfully",
+    "question": {
+        "id": 3,
+        "question_text": "What is the capital of France?",
+        "question_type": "MCQ",
+        "correct_answer": "Paris",
+        "choices": "['Paris', 'Madrid']"
+    }
+}
 
 get from:
 get all subjects: http://127.0.0.1:8000/api/subjects
@@ -69,3 +89,18 @@ example output:
 ]
 get a motivational message: http://127.0.0.1:8000/api/messages/motivational
 get rizzed: http://127.0.0.1:8000/api/messages/rizz
+get quizzes by instructor id: http://127.0.0.1:8000/api/quizzes/instructor/<int:instructor_id>
+expected output:
+[
+    {
+        "id": 1,
+        "course_code": "CSAI101",
+        "level_of_difficulty": "Eb2a 2abelny lw 7aleto"
+    },
+    {
+        "id": 3,
+        "course_code": "CSAI101",
+        "level_of_difficulty": "Eb2a 2abelny lw 7aleto"
+    }
+]
+get email by instructor id: http://127.0.0.1:8000/api/instructor/<str:instructor_id>/email

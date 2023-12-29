@@ -67,7 +67,7 @@ class QuestionService:
             return None
 
     @staticmethod
-    def update_question(question_id, question_text=None, question_type=None, correct_answer=None):
+    def update_question(question_id, question_text=None, question_type=None, correct_answer=None, choices=None):
         question = QuestionService.get_question_by_id(question_id)
         if question is not None:
             if question_text is not None:
@@ -76,6 +76,8 @@ class QuestionService:
                 question.question_type = question_type
             if correct_answer is not None:
                 question.correct_answer = correct_answer
+            if choices is not None:
+                question.set_choices(choices)
             question.save()
         return question
 
