@@ -14,7 +14,13 @@ class GradeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class GradeSerializerByQuiz(serializers.ModelSerializer):
+class GradeSerializerByStudent(serializers.ModelSerializer):
     class Meta:
         model = Grade
         fields = ['quiz', 'grade']
+
+
+class GradeSerializerByQuiz(serializers.ModelSerializer):
+    class Meta:
+        model = Grade
+        fields = ['student', 'grade']

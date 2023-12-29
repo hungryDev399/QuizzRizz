@@ -1,8 +1,5 @@
 
-pip freeze > requirments.txt  after installing each package
 
-edits: remove getAutoGradedQuizzes from Quizzes
-edits: level_of_diffuclty
 edits: make qustions a many to many with quizzes
 material types:
 slide
@@ -60,4 +57,15 @@ example output:
         "grade": 2
     }
 ]
-
+get quiz grades by quiz id: http://127.0.0.1:8000/api/grades/quiz/<int:quiz_id>
+example output:
+[
+    {
+        "student": 1,
+        "grade": 2
+    },
+    {
+        "student": 2,
+        "grade": 3
+    }
+]

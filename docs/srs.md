@@ -25,6 +25,12 @@ Revision History
 <td>Initial version</td>
 <td>1.0</td>
 </tr>
+<tr>
+<td>Amr Mamdouh, Mohamed Elnaggar</td>
+<td>29 Dec 2023</td>
+<td>Changed requirment 5 that included the ability to give reviews for the instructor because it was unnecessary and not feasible for the avaialble time</td>
+<td>1.1</td>
+</tr>
 
 </table>
 
@@ -58,7 +64,7 @@ Revision History
 1. Students can choose their school.
 1. Students can choose their major (if exists).
 1. Students can choose their concentrations (if exists).
-1. Students can write reviews for the Instructors.
+1. Students can access a page that includes all the available subjects.
 1. Students can access slides for the subject.
 1. Students can access recorded videos for the subject (if it's available).
 1. Students can access old exams for the subject (if it's available).
