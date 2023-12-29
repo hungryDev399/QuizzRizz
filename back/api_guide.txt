@@ -1,6 +1,4 @@
 
-
-edits: make qustions a many to many with quizzes
 material types:
 slide
 past_exam
@@ -69,3 +67,5 @@ example output:
         "grade": 3
     }
 ]
+get a motivational message: http://127.0.0.1:8000/api/messages/motivational
+get rizzed: http://127.0.0.1:8000/api/messages/rizz
