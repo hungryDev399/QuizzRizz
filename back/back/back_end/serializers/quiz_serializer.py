@@ -24,3 +24,11 @@ class GradeSerializerByQuiz(serializers.ModelSerializer):
     class Meta:
         model = Grade
         fields = ['student', 'grade']
+
+
+class InstructorQuizSerializer(serializers.ModelSerializer):
+    course_code = serializers.CharField(source='subject.course_code')
+
+    class Meta:
+        model = Quiz
+        fields = ['id', 'course_code', 'level_of_difficulty']

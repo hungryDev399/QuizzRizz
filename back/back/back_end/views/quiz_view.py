@@ -3,8 +3,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-from ..serializers import GradeSerializer, QuizSerializer, QuestionSerializer, GradeSerializerByStudent, GradeSerializerByQuiz
-from ..models import Quiz, Question, Grade
+from ..serializers import GradeSerializer, QuizSerializer, QuestionSerializer, GradeSerializerByStudent, GradeSerializerByQuiz, InstructorQuizSerializer
+from ..models import Quiz, Question, Grade, Instructor
 from ..models import QuizService, QuestionService
 from ..models import SubjectService
 from ..models import Student
@@ -65,3 +65,45 @@ def get_grades_by_quiz_id(request, quiz_id):
         return Response({'error': 'Quiz does not exist'}, status=400)
     serializer = GradeSerializerByQuiz(grades, many=True)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_quizzes_by_instructor_id(request, instructor_id):
+    quizzes = Quiz.objects.filter(instructor__instructor_id=instructor_id)
+    if not quizzes.exists():
+        return Response({'error': 'Quiz does not exist'}, status=400)
+    serializer = InstructorQuizSerializer(quizzes, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['POST'])
+def create_quiz(request):
+    subject_id = request.data.get('subject_id')
+    instructor_id = request.data.get('instructor_id')
+    questions = request.data.get('questions', [])
+    level_of_difficulty = request.data.get('level_of_difficulty', 'Unknown')
+    subject = SubjectService.get_subject_by_id(subject_id)
+    try:
+        instructor = Instructor.objects.get(instructor_id=instructor_id)
+    except ObjectDoesNotExist:
+        instructor = None
+    # get questions by id and make a list of object questions
+    for i in range(len(questions)):
+        question_id = questions[i]
+        question = QuestionService.get_question_by_id(question_id)
+        if question is None:
+            return Response({'error': 'The question with id ' + str(question_id) + ' does not exist'}, status=400)
+        questions[i] = question
+
+    if subject is None:
+        return Response({'error': 'Subject does not exist'}, status=400)
+    if instructor is None:
+        return Response({'error': 'Instructor does not exist'}, status=400)
+    # get all possible choices for level of difficulty
+    difficulty_choices = [choice[0] for choice in Quiz.Quiz_LEVELS]
+    if level_of_difficulty not in difficulty_choices:
+        return Response({'error': 'Invalid level of difficulty'}, status=400)
+    quiz = QuizService.create_quiz(
+        subject, instructor, questions, level_of_difficulty)
+    serializer = QuizSerializer(quiz)
+    return Response({'success': 'Quiz created successfully', 'quiz': serializer.data}, status=200)
