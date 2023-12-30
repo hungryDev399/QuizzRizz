@@ -1,10 +1,17 @@
-
-
-edits: make qustions a many to many with quizzes
+Full documentation for all possiblr API calls:
 material types:
 slide
 past_exam
 recorded_video
+
+quiz levels of difficulty:
+Easy
+Medium
+Hard
+Very Hard
+Unbelievably Hard
+Eb2a 2abelny lw 7aleto
+Unknown
 
 post to:
 http://127.0.0.1:8000/api/register/instructor 
@@ -36,6 +43,107 @@ example answer to be sent:
         "1": "fine",
         "2": "yes"
     }
+}
+update a question: http://127.0.0.1:8000/api/question
+example input(note that all fields are optional except for the instructor id):
+{
+    "question_id": 3,
+    "question_text": "What is the capital of France?",
+    "question_type": "MCQ",
+    "correct_answer": "Paris",
+    "choices": ["Paris","Madrid"]
+}
+example out:
+{
+    "success": "Question updated successfully",
+    "question": {
+        "id": 3,
+        "question_text": "What is the capital of France?",
+        "question_type": "MCQ",
+        "correct_answer": "Paris",
+        "choices": "['Paris', 'Madrid']"
+    }
+}
+create a question: http://127.0.0.1:8000/api/question/create
+example input:
+{
+    "question_text": "Are you tired",
+    "question_type": "Essay",
+    "correct_answer": "very"
+}
+OR
+{
+    "question_text": "Are you tired",
+    "question_type": "MCQ",
+    "correct_answer": "very",
+    "choices": ["yes","very"]
+}
+
+example outputs:
+{
+    "success": "Question created successfully",
+    "question": {
+        "id": 14,
+        "question_text": "Are you tired",
+        "question_type": "MCQ",
+        "correct_answer": "very",
+        "choices": "['yes', 'very']"
+    }
+}
+OR
+{
+    "error": "correct answer This field is required."
+}
+OR
+{
+    "error": "Choices are not required for Essay questions"
+}
+OR
+{
+    "error": "Choices are required for MCQ questions"
+}
+
+create a quiz: http://127.0.0.1:8000/api/quizzes/create
+example input:
+{
+    "subject_id": 1,
+    "instructor_id": "19691969",
+    "questions": [1,2,3,10],
+    "level_of_difficulty": "Eb2a 2abelny lw 7aleto"
+}
+
+example output:
+{
+    "success": "Quiz created successfully",
+    "quiz": {
+        "id": 6,
+        "level_of_difficulty": "Eb2a 2abelny lw 7aeto",
+        "subject": 1,
+        "instructor": 1,
+        "questions": [
+            1,
+            2,
+            3,
+            10
+        ],
+        "grades": []
+    }
+}
+OR
+{
+    "error": "The question with id 11 does not exist"
+}
+OR 
+{
+    "error": "Instructor does not exist"
+}
+OR
+{
+    "error": "Subject does not exist"
+}
+OR 
+{
+    "error": "Invalid level of difficulty"
 }
 
 get from:
@@ -69,3 +177,32 @@ example output:
         "grade": 3
     }
 ]
+get a motivational message: http://127.0.0.1:8000/api/messages/motivational
+get rizzed: http://127.0.0.1:8000/api/messages/rizz
+get quizzes by instructor id: http://127.0.0.1:8000/api/quizzes/instructor/<int:instructor_id>
+expected output:
+[
+    {
+        "id": 1,
+        "course_code": "CSAI101",
+        "level_of_difficulty": "Eb2a 2abelny lw 7aleto"
+    },
+    {
+        "id": 3,
+        "course_code": "CSAI101",
+        "level_of_difficulty": "Eb2a 2abelny lw 7aleto"
+    }
+]
+get email by instructor id: http://127.0.0.1:8000/api/instructor/<str:instructor_id>/email
+
+
+Deletes:
+delete a question: http://127.0.0.1:8000/api/question/delete/<int:question_id>
+example output:
+{
+    "success": "Question deleted successfully"
+}
+OR
+{
+    "error": "Question does not exist"
+}

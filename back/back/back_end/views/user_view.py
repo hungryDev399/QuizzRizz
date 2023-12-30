@@ -55,3 +55,12 @@ def get_instructor_by_id(request, instructor_id):
         return Response({'error': 'Instructor does not exist'})
     serializer = InstructorSerializer(instructor)
     return Response(serializer.data)
+
+
+@api_view(['GET',])
+def get_email_by_instructor_id(request, instructor_id):
+    try:
+        instructor = Instructor.objects.get(instructor_id=instructor_id)
+    except Instructor.DoesNotExist:
+        return Response({'error': 'Instructor does not exist'}, status=400)
+    return Response({'email': instructor.email})
