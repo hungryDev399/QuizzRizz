@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from "react";
 import { useParams, useNavigate } from 'react-router-dom';
+import { useAtom } from "jotai";
+import { signedAtom } from "../index.js";
 
 export default function Quiz() {
     let { quizID } = useParams();
+	const [signed, setSignedState] = useAtom(signedAtom);
     const [questions, setQuestions] = useState([{"id":1,"question_text":"First Question","choices":'["1","2","3","4"]'}]);
 	const [answers, setAnswers] = useState({});
 	const navigate = useNavigate();
@@ -15,9 +18,7 @@ export default function Quiz() {
 	};
 
 	const handleSubmit = () => {
-		const quiz_id = quizID;
-		const student_id = 202201863; 
-		fetch(`http://127.0.0.1:8000/api/quizzes/${quiz_id}/${student_id}`, {
+		fetch(`http://127.0.0.1:8000/api/quizzes/${quizID}/${signed.userId}`, {
 			method: 'POST',
 			headers: {
 			'Content-Type': 'application/json'
@@ -69,7 +70,8 @@ export default function Quiz() {
 					</div>
 				</section>
 			))
-			}
+		}
+		{console.log(question.choices, typeof question.choices)}
 		</article>
         ))}
 		<div className="ml-auto mb-4 px-16 text-right">

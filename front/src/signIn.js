@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { useAtom } from "jotai";
+import { signedAtom } from "./index.js";
 
 export default function SignIn() {
+	const [signed, setSignedState] = useAtom(signedAtom);
 	const [uid,setUid]= useState("");
 	const [password,setPassword] = useState("");
 	const [userType, setUserType] = useState("student");
@@ -26,7 +29,8 @@ export default function SignIn() {
 			.then(response => {
 				if (response.status === 200) {
 					console.log("done");
-					navigate('/')
+					setSignedState({signed: true, userType: "student", userId: uid});
+					navigate('/');
 				}
 				else {
 					setLoginStatus(0);
@@ -49,6 +53,7 @@ export default function SignIn() {
 			.then(response => {
 				if (response.status === 200) {
 					console.log("done");
+					setSignedState({signed: true, userType: "instructor", userId: uid});
 					navigate('/')
 				}
 				else{
