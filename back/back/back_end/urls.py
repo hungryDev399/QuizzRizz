@@ -46,6 +46,7 @@ urlpatterns = [
     path('question', QuestionView.update_question),
     path('question/create', QuestionView.create_question),
     path('question/delete/<int:question_id>', QuestionView.delete_question),
-    path('quizzes/create', create_quiz)
+    path('quizzes/create', create_quiz),
+    path('quizzes/create2', create_quiz),
 
 ]

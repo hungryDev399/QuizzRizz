@@ -54,7 +54,8 @@ def registration_instructor_view(request):
 @api_view(['GET',])
 def get_instructor_by_id(request, instructor_id):
     try:
-        instructor = Instructor.objects.get(instructor_id=instructor_id)
+        instructor = Instructor.objects.get(
+            instructor__instructor_id=instructor_id)
     except Instructor.DoesNotExist:
         return Response({'error': 'Instructor does not exist'})
     serializer = InstructorSerializer(instructor)
@@ -64,7 +65,8 @@ def get_instructor_by_id(request, instructor_id):
 @api_view(['GET',])
 def get_email_by_instructor_id(request, instructor_id):
     try:
-        instructor = Instructor.objects.get(instructor_id=instructor_id)
+        instructor = Instructor.objects.get(
+            instructor__instructor_id=instructor_id)
     except Instructor.DoesNotExist:
         return Response({'error': 'Instructor does not exist'}, status=400)
     return Response({'email': instructor.email})
