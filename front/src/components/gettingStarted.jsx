@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAtom } from "jotai";
+import { signedAtom } from "../index.js";
 
 export default function GettingStarted() {
+	const [signed, setSignedState] = useAtom(signedAtom);
 	return (
 		<div className="justify-between">
 			<div className="flex max-md:flex-col max-md:items-stretch max-md:gap-0">
@@ -16,7 +19,7 @@ export default function GettingStarted() {
 								practical is the ideal formula for an engaging and enjoyable
 								platform.
 							</div>
-							<Link to="/signIn" className="text-zinc-50 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch rounded bg-black mt-8 px-8 py-4 max-md:px-5">
+							<Link to={signed? "/resources": "/signIn"} className="text-zinc-50 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch rounded bg-black mt-8 px-8 py-4 max-md:px-5">
 								Get Started!
 							</Link>
 						</div>

@@ -1,7 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
+import { signedAtom } from "../index.js";
 
 export default function NavBar() {
+	const navigate = useNavigate();
+	const [signed, setSignedState] = useAtom(signedAtom);
 	return (
 		<header className="bg-black flex w-full max-w items-stretch justify-between gap-5 max-md:max-w-full max-md:flex-wrap max-md:justify-center">
 			<Link to="/" className="ms-14 text-white text-2xl font-medium leading-8 my-auto">
@@ -18,6 +22,17 @@ export default function NavBar() {
 					Resources
 				</Link>
 			</nav>
+			{signed ? (
+			<form className="justify-between items-stretch flex gap-5 py-1.5 me-14">
+				<button onClick={()=>{
+					setSignedState(false);
+					navigate('/');
+					}}
+					className="text-black text-center text-xs font-medium leading-4 whitespace-nowrap justify-center items-stretch rounded bg-white grow px-6 py-3 max-md:px-5">
+					Sign out
+				</button>
+			</form>
+			): (
 			<form className="justify-between items-stretch flex gap-5 py-1.5 me-14">
 				<Link to="/signUp" className="text-black text-center text-xs font-medium leading-4 whitespace-nowrap justify-center items-stretch rounded bg-white grow px-6 py-3 max-md:px-5">
 					Sign up
@@ -26,6 +41,7 @@ export default function NavBar() {
 					Sign in
 				</Link>
 			</form>
+			)}
 		</header>
 	);
 }

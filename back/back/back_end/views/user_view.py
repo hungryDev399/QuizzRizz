@@ -1,5 +1,5 @@
 from django.core.exceptions import ObjectDoesNotExist
-
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from ..serializers import StudentSerializer, InstructorSerializer
@@ -22,9 +22,10 @@ def registration_student_view(request):
             data['major'] = user.major
             data['concentration'] = user.concentration
             data['student_id'] = user.student_id
+            return Response(data)
         else:
             data = serializer.errors
-        return Response(data)
+            return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['POST',])
@@ -42,10 +43,10 @@ def registration_instructor_view(request):
             data['national_id'] = user.national_id
             data['school'] = user.school
             data['instructor_id'] = user.instructor_id
+            return Response(data)
         else:
             data = serializer.errors
-        return Response(data)
-
+            return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET',])
 def get_instructor_by_id(request, instructor_id):
