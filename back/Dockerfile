@@ -20,4 +20,4 @@ EXPOSE 8000
 ENV NAME World
 
 # Run app.py when the container launches
-CMD ["python", "back/manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "back/manage.py", "migrate", "&&", "python", "back/manage.py", "runserver", "0.0.0.0:8000"]
