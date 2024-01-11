@@ -10,12 +10,12 @@ export default function Results() {
     useEffect(()=>
     {
         if(result > (numberOfQuestions/2)){
-            fetch(`http://127.0.0.1:8000/api/messages/motivational`)
+            fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/messages/motivational`)
             .then(response => response.json())
             .then(data => setMessege(data["message"]));
         }
         else {
-            fetch(`http://127.0.0.1:8000/api/messages/rizz`)
+            fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/messages/rizz`)
             .then(response => response.json())
             .then(data => setMessege(data["message"]));
         }

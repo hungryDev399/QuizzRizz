@@ -16,7 +16,7 @@ export default function SignIn() {
 		if (uid != "" && password != ""){
 		if (userType == "student"){
 
-			fetch(`http://127.0.0.1:8000/api/login/student`, {
+			fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/login/student`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ export default function SignIn() {
 		}
 		else {
 
-			fetch(`http://127.0.0.1:8000/api/login/instructor`, {
+			fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/login/instructor`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -130,7 +130,7 @@ export default function SignIn() {
 									
 								</div>
 
-                                <input type="submit" className="cursor-pointer text-zinc-50 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch rounded bg-black mt-4 px-8 py-4 max-md:px-5"/>
+                                <input type="submit" id="submitbtn" className="cursor-pointer text-zinc-50 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch rounded bg-black mt-4 px-8 py-4 max-md:px-5"/>
 								{loginStatus == 0 ? <p className="text-red-500">The password or university ID entered is incorrect.</p>:null}
                             </form>
 						</div>

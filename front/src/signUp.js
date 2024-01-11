@@ -18,8 +18,8 @@ export default function SignUp() {
     const handleSubmit = (event) => {
 		event.preventDefault();
 		if (password == confirmPassword){
-            if (email[0] == "s"){
-                fetch(`http://127.0.0.1:8000/api/register/student`, {
+            if (email[0] == "s" && email[1] =="-"){
+                fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/register/student`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ export default function SignUp() {
                 .catch(error => { console.error('Error:', error) });
 		    }
             else {
-                fetch(`http://127.0.0.1:8000/api/register/instructor`, {
+                fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/register/instructor`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -106,8 +106,7 @@ export default function SignUp() {
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">School</label>
                                 <div className="inline-block relative w-[350px]">
                                     <select onChange={(input) => setSchool(input.target.value)} id="school" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" required>
-                                        <option>choose your school</option>
-                                        <option value="CSAI" id="CSAI">CSAI</option>
+                                        <option value="CSAI" id="CSAI" selected>CSAI</option>
                                         <option value="Science" id="Science">Science</option>
                                         <option value="Engineering" id="Engineering">Engineering</option>
                                         <option value="Business" id="Business">Business</option>
@@ -123,8 +122,7 @@ export default function SignUp() {
                                 </label>
                                 <div className="inline-block relative w-[350px]">
                                     <select onChange={(input) => setMajor(input.target.value)} id="major" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" required>
-                                        <option>choose your Major</option>
-                                        <option value="SWD" id="SWD">SWD</option>
+                                        <option value="SWD" id="SWD" selected>SWD</option>
                                         <option value="DSAI" id="DSAI">DSAI</option>
                                         <option value="IT" id="IT">IT</option>
                                         <option value="Business" id="Business">Business</option>
@@ -142,7 +140,7 @@ export default function SignUp() {
                                     </div>
                                 </div>
                                 
-                                <input type="submit" className="cursor-pointer text-zinc-50 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch rounded bg-black mt-4 px-8 py-4 max-md:px-5"/>
+                                <input type="submit" id="submitbtn" className="cursor-pointer text-zinc-50 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch rounded bg-black mt-4 px-8 py-4 max-md:px-5"/>
 								{signUpStatus == 0 ? <p className="text-red-500">The Information you have entered is incorrect.</p>:null}
                             </form>
 						</div>
