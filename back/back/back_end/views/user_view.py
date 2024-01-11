@@ -26,7 +26,7 @@ def registration_student_view(request):
             return Response(data)
         else:
             data = serializer.errors
-                return Response(data, status=status.HTTP_400_BAD_REQUEST, status=status.HTTP_400_BAD_REQUEST)
+            return Response(data, status=status.HTTP_400_BAD_REQUEST, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['POST',])
@@ -48,7 +48,8 @@ def registration_instructor_view(request):
             return Response(data)
         else:
             data = serializer.errors
-                return Response(data, status=status.HTTP_400_BAD_REQUEST, status=status.HTTP_400_BAD_REQUEST)
+            return Response(data, status=status.HTTP_400_BAD_REQUEST, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET',])
 def get_instructor_by_id(request, instructor_id):
