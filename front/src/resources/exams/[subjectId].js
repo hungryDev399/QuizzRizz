@@ -7,7 +7,7 @@ export default function Exams() {
 	let { subjectId } = useParams();
 	const [exams, setExams] = useState([{name:"exam", material_id:"0", link:"/"}]);
 	useEffect(() => {
-		fetch(`http://127.0.0.1:8000/api/subjects/${subjectId}/past_exams`)
+		fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/subjects/${subjectId}/past_exams`)
 		  .then(response => response.json())
 		  .then(data => setExams(data));
 	  }, []);

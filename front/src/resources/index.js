@@ -7,10 +7,10 @@ import Subject from "../components/subject";
 
 export default function Resources() {
     const [signed, setSignedState] = useAtom(signedAtom);
-    const [subjects, setSubjects] = useState([{"course_name":"Subject-1","course_code":"000"}]);
+    const [subjects, setSubjects] = useState([{"course_name":"","course_code":""}]);
 
     useEffect(() => {
-      fetch('http://127.0.0.1:8000/api/subjects')
+      fetch('http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/subjects')
         .then(response => response.json())
         .then(data => setSubjects(data));
     }, []);

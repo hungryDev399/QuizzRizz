@@ -7,7 +7,7 @@ export default function Videos() {
 	let { subjectId } = useParams();
 	const [videos, setVideos] = useState([{name:"video", material_id:"0", link:"/"}]);
 	useEffect(() => {
-		fetch(`http://127.0.0.1:8000/api/subjects/${subjectId}/recorded_videos`)
+		fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/subjects/${subjectId}/recorded_videos`)
 		  .then(response => response.json())
 		  .then(data => setVideos(data));
 	  }, []);

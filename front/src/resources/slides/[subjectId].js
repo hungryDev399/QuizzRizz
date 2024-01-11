@@ -7,7 +7,7 @@ export default function Slides() {
 	let { subjectId } = useParams();
 	const [slides, setSlides] = useState([{name:"slide", material_id:"0", link:"/"}]);
 	useEffect(() => {
-		fetch(`http://127.0.0.1:8000/api/subjects/${subjectId}/slides`)
+		fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/subjects/${subjectId}/slides`)
 		  .then(response => response.json())
 		  .then(data => setSlides(data));
 	  }, []);

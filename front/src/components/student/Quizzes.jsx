@@ -6,7 +6,7 @@ export default function Quizzes() {
     const [quizzes, setQuizzes] = useState([{"id":"1","level_of_difficulty":"easy", "questions":[1,2,3,4,5,6,7,8,9], "instructor":1},{"id":"2","level_of_difficulty":"medium", "questions":[1,2,3,4,5,6,7,8,9], "instructor":1},{"id":"3","level_of_difficulty":"hard", "questions":[1,2,3,4,5,6,7,8,9], "instructor":1}]);
 
     useEffect(() => {
-      fetch('http://127.0.0.1:8000/api/quizzes')
+      fetch('http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/quizzes')
         .then(response => response.json())
         .then(data => setQuizzes(data));
     }, []);
@@ -28,8 +28,7 @@ export default function Quizzes() {
                 {
                 quizzes.map(quiz => (
                     <div key={quiz.id} className="w-full sm:w-1/2 lg:w-1/3 px-2 mb-4">
-                        <p className="text-white text-2xl font-medium leading-8 my-auto">Quiz {quiz.id}: {quiz.instructor}</p>
-                        <Quiz instructor={quiz.instructor} quizID={quiz.id} levelOfDifficulty={quiz.level_of_difficulty} questionsNumber={quiz.questions.length}/>
+                        <Quiz quizID={quiz.id} levelOfDifficulty={quiz.level_of_difficulty} questionsNumber={quiz.questions.length}/>
                     </div>
                 ))
                 }

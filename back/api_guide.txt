@@ -14,7 +14,7 @@ Eb2a 2abelny lw 7aleto
 Unknown
 
 post to:
-http://127.0.0.1:8000/api/register/instructor 
+http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/register/instructor 
 example input:
 {
     "email": "teststudent@example.com",
@@ -27,15 +27,15 @@ example input:
     "instructor_id": "12345",
     "password": "testpassword"
 }
-http://127.0.0.1:8000/api/register/student
-http://127.0.0.1:8000/api/login/student
+http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/register/student
+http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/login/student
 example input:
 {
     "student_id": "202216969",
     "password": "gamed"
 }
-http://127.0.0.1:8000/api/login/instructor
-http://127.0.0.1:8000/api/quizzes/<int:quiz_id>/<int:student_id> :
+http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/login/instructor
+http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/quizzes/<int:quiz_id>/<int:student_id> :
 returns the best grade
 example answer to be sent: 
 {
@@ -44,7 +44,7 @@ example answer to be sent:
         "2": "yes"
     }
 }
-update a question: http://127.0.0.1:8000/api/question
+update a question: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/question
 example input(note that all fields are optional except for the instructor id):
 {
     "question_id": 3,
@@ -64,7 +64,7 @@ example out:
         "choices": "['Paris', 'Madrid']"
     }
 }
-create a question: http://127.0.0.1:8000/api/question/create
+create a question: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/question/create
 example input:
 {
     "question_text": "Are you tired",
@@ -103,7 +103,7 @@ OR
     "error": "Choices are required for MCQ questions"
 }
 
-create a quiz: http://127.0.0.1:8000/api/quizzes/create
+create a quiz: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/quizzes/create
 example input:
 {
     "subject_id": 1,
@@ -147,17 +147,17 @@ OR
 }
 
 get from:
-get all subjects: http://127.0.0.1:8000/api/subjects
-get all slides: http://127.0.0.1:8000/api/subjects/CSAI101/slides
-get all recorded videos: http://127.0.0.1:8000/api/subjects/CSAI101/recorded_videos
-get all past exams: http://127.0.0.1:8000/api/subjects/CSAI102/past_exams
+get all subjects: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/subjects
+get all slides: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/subjects/CSAI101/slides
+get all recorded videos: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/subjects/CSAI101/recorded_videos
+get all past exams: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/subjects/CSAI102/past_exams
 example out: [{"name":"some exam","type":"past_exam","material_id":"sadsa1d","link":"https://docs.djangoproject.com/en/5.0/","major":"CSAI","subject":2}]
-get all quizzes: http://127.0.0.1:8000/api/quizzes
-get questions for a quiz: http://127.0.0.1:8000/api/quizzes/<quiz_id(int)>/questions
-get answers for a quiz: http://127.0.0.1:8000/api/quizzes/<quiz_id(int)>/answers (returns objects of question_id: answer)
-get subject by id: http://127.0.0.1:8000/api/subjects/<int:subject_id>
-get insructor by id: http://127.0.0.1:8000/api/instructors/<str:instructor_id>
-get student grades by id:http://127.0.0.1:8000/api/grades/<int:student_id>
+get all quizzes: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/quizzes
+get questions for a quiz: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/quizzes/<quiz_id(int)>/questions
+get answers for a quiz: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/quizzes/<quiz_id(int)>/answers (returns objects of question_id: answer)
+get subject by id: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/subjects/<int:subject_id>
+get insructor by id: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/instructors/<str:instructor_id>
+get student grades by id:http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/grades/<int:student_id>
 example output:
 [
     {
@@ -165,7 +165,7 @@ example output:
         "grade": 2
     }
 ]
-get quiz grades by quiz id: http://127.0.0.1:8000/api/grades/quiz/<int:quiz_id>
+get quiz grades by quiz id: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/grades/quiz/<int:quiz_id>
 example output:
 [
     {
@@ -177,9 +177,9 @@ example output:
         "grade": 3
     }
 ]
-get a motivational message: http://127.0.0.1:8000/api/messages/motivational
-get rizzed: http://127.0.0.1:8000/api/messages/rizz
-get quizzes by instructor id: http://127.0.0.1:8000/api/quizzes/instructor/<int:instructor_id>
+get a motivational message: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/messages/motivational
+get rizzed: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/messages/rizz
+get quizzes by instructor id: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/quizzes/instructor/<int:instructor_id>
 expected output:
 [
     {
@@ -193,11 +193,11 @@ expected output:
         "level_of_difficulty": "Eb2a 2abelny lw 7aleto"
     }
 ]
-get email by instructor id: http://127.0.0.1:8000/api/instructor/<str:instructor_id>/email
+get email by instructor id: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/instructor/<str:instructor_id>/email
 
 
 Deletes:
-delete a question: http://127.0.0.1:8000/api/question/delete/<int:question_id>
+delete a question: http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/question/delete/<int:question_id>
 example output:
 {
     "success": "Question deleted successfully"

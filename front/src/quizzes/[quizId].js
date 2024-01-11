@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import { signedAtom } from "../index.js";
 
 export default function Quiz() {
-    let { quizID, i } = useParams();
+    let { quizID } = useParams();
 	const [signed, setSignedState] = useAtom(signedAtom);
     const [questions, setQuestions] = useState([{"id":1,"question_text":"First Question","choices":'["1","2","3","4"]'}]);
 	const [answers, setAnswers] = useState({});
@@ -19,7 +19,7 @@ export default function Quiz() {
 	};
 
 	const handleSubmit = () => {
-		fetch(`http://127.0.0.1:8000/api/quizzes/${quizID}/${signed.userId}`, {
+		fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/quizzes/${quizID}/${signed.userId}`, {
 			method: 'POST',
 			headers: {
 			'Content-Type': 'application/json'
@@ -27,20 +27,20 @@ export default function Quiz() {
 			body: JSON.stringify({answers})
 		})
 		.then(response => response.json())
-		.then(data => { navigate('/quizzes/results', { state:  { data } }) })
+		.then(data => { navigate('/quizzes/results', { state:  { data, numberOfQuestions:questions.length } }) })
 		.catch(error => { console.error('Error:', error) });
 	};
 
     useEffect(() => {
-      	fetch(`http://127.0.0.1:8000/api/quizzes/${quizID}/questions`)
+      	fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/quizzes/${quizID}/questions`)
         .then(response => response.json())
         .then(data => setQuestions(data));	
 		
-		fetch(`http://127.0.0.1:8000/api/instructors/${i}}`)
-		.then(response => response.json())
-		.then(data => {
-			console.log("ins", data);
-			setContactInfo(data["email"])});
+		// fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/instructors/${i}`)
+		// .then(response => response.json())
+		// .then(data => {
+		// 	console.log("ins", data);
+		// 	setContactInfo(data["email"])});
     }, []);
 
 	return (

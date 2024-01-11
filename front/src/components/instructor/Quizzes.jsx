@@ -9,7 +9,7 @@ export default function Quizzes() {
     const [quizzes, setQuizzes] = useState([{"id":"1","level_of_difficulty":"easy"},{"id":"2","level_of_difficulty":"medium"},{"id":"3","level_of_difficulty":"hard"}]);
 
     useEffect(() => {
-      fetch('http://127.0.0.1:8000/api/quizzes/instructor/'+ signed.userId)
+      fetch('http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/quizzes/instructor/'+ signed.userId)
         .then(response => response.json())
         .then(data => setQuizzes(data));
     }, []);

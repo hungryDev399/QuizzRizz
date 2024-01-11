@@ -37,7 +37,7 @@ export default function NavBar() {
 				<Link to="/signUp" className="text-black text-center text-xs font-medium leading-4 whitespace-nowrap justify-center items-stretch rounded bg-white grow px-6 py-3 max-md:px-5">
 					Sign up
 				</Link>
-				<Link to="/signIn" className="text-white text-xs font-medium leading-4 self-center my-auto">
+				<Link to="/signIn" id="Signin" className="text-white text-xs font-medium leading-4 self-center my-auto">
 					Sign in
 				</Link>
 			</form>

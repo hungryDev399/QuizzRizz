@@ -19,7 +19,7 @@ export default function AddQuestions() {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		fetch(`http://127.0.0.1:8000/api/question/create`, {
+		fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/question/create`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ export default function AddQuestions() {
 
 	const createQuiz = (event) => {
 		event.preventDefault();
-		fetch(`http://127.0.0.1:8000/api/quizzes/create`, {
+		fetch(`http://csai203back.dtd7gjgpdaczfyc8.eastus2.azurecontainer.io:8000/api/quizzes/create`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
