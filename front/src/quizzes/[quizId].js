@@ -4,10 +4,11 @@ import { useAtom } from "jotai";
 import { signedAtom } from "../index.js";
 
 export default function Quiz() {
-    let { quizID } = useParams();
+    let { quizID, i } = useParams();
 	const [signed, setSignedState] = useAtom(signedAtom);
     const [questions, setQuestions] = useState([{"id":1,"question_text":"First Question","choices":'["1","2","3","4"]'}]);
 	const [answers, setAnswers] = useState({});
+	const [contactInfo, setContactInfo] = useState("");
 	const navigate = useNavigate();
 
 	const handleChoiceSelection = (questionId, selectedChoice) => {
@@ -31,9 +32,15 @@ export default function Quiz() {
 	};
 
     useEffect(() => {
-      fetch(`http://127.0.0.1:8000/api/quizzes/${quizID}/questions`)
+      	fetch(`http://127.0.0.1:8000/api/quizzes/${quizID}/questions`)
         .then(response => response.json())
-        .then(data => setQuestions(data));
+        .then(data => setQuestions(data));	
+		
+		fetch(`http://127.0.0.1:8000/api/instructors/${i}}`)
+		.then(response => response.json())
+		.then(data => {
+			console.log("ins", data);
+			setContactInfo(data["email"])});
     }, []);
 
 	return (
@@ -74,8 +81,9 @@ export default function Quiz() {
 		{console.log(question.choices, typeof question.choices)}
 		</article>
         ))}
-		<div className="ml-auto mb-4 px-16 text-right">
-			<button onClick={handleSubmit} className="text-white text-center text-xs font-medium leading-4 whitespace-nowrap justify-center items-stretch rounded bg-black grow px-6 py-3 max-md:px-5">submit</button>
+		<div className="flex w-[100%] justify-between mb-4 px-16">
+			{signed.userType == "student" ? <span className="text-black font-bold text-left w-[20%] self-center">Contact the instructor: {contactInfo}</span> : <span></span>}
+			<button onClick={handleSubmit} className="text-white text-center text-xs font-medium leading-4 whitespace-nowrap justify-center items-stretch rounded bg-black px-6 py-3 max-md:px-5 w-[7.5%]">submit</button>
 		</div>
         </>
 	);

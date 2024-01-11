@@ -22,7 +22,7 @@ import Footer from './components/footer';
 
 
 // export const signedAtom = atom(false);
-export const signedAtom = atom({signed: true, userType: "instructor", userId: 202201862});
+export const signedAtom = atom({signed: true, userType: "student", userId: 202201863});
 // export const signedAtom = atom({signed: true, userType: "student", userId: 202201863});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
