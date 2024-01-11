@@ -1,0 +1,32 @@
+name: Deploy backend to Azure Container Instances
+
+on:
+  push:
+    branches:
+      - front
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+      - name: install pytest
+        run: |
+          pip install pytest
+      - name: Run pytest
+        run: |
+          pytest
+
+      - name: Build and push Docker image
+        run: |
+          cd front
+          docker build . -t  ${{ secrets.REGISTRY_NAME }}.azurecr.io/frontend:latest
+          docker login  ${{ secrets.REGISTRY_NAME }}.azurecr.io -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
+          docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/frontend:latest
