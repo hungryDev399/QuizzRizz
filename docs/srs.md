@@ -31,7 +31,13 @@ Revision History
 <td>Changed requirment 5 that included the ability to give reviews for the instructor because it was unnecessary and not feasible for the avaialble time</td>
 <td>1.1</td>
 </tr>
-
+</tr>
+<tr>
+<td>Amr Mamdouh, Mohamed Elnaggar</td>
+<td>11 Jan 2024</td>
+<td>Changed requirements that were not feasible</td>
+<td>2.0</td>
+</tr>
 </table>
 
 # 1 Introduction
@@ -74,22 +80,20 @@ Revision History
 1. System will compliment (rizz) if the student passes the exam/quiz.
 1. System will give a motivation message if the student fails the exam/quiz.
 1. System will provide students with a detailed record of their performance in exams and quizzes over time.
+1. Instructors can see questions they provided for a quiz.
+1. Instructors can see answers they provided for a quiz.
 1. Instructors will provide questions for quizzes and exams to the students.
 1. Instructors will provide answers for quizzes and exams to the students.
-1. Instructors can edit questions/answers for an existing exam or quiz (exam/quiz must be provided by them).
 1. Instructors can preview all exams/quizzes provided by them.
-1. System will provide instructors with an overview for students performance in certain exam/quiz.
-1. System will provide a convenient way for students to contact Instructor who provided the exam/quiz.
+1. students can view a quizzes page
 
 # 5. Nonfunctional Requirements
 
 ## 5.1 Performance Requirements
 
-The Website should be able to handle about 200 concurrent users
+The Website should be able to handle about 2 concurrent users
 
-## 5.2 Safety Requirements
 
-The website shall only be accessed by zewailcity students or staff.
 
 ## 5.5 Legal and Regulatory Requirements
 
