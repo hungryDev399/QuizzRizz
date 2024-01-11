@@ -105,12 +105,12 @@ export default function SignUp() {
                                 <input onChange={(input) => {setUniversityId(input.target.value)}} type="number" id="university_id" className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="12345678901234" required/>
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">School</label>
                                 <div className="inline-block relative w-[350px]">
-                                    <select onChange={(input) => setSchool(input.target.value)} className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" required>
+                                    <select onChange={(input) => setSchool(input.target.value)} id="school" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" required>
                                         <option>choose your school</option>
-                                        <option value="CSAI">CSAI</option>
-                                        <option value="Science">Science</option>
-                                        <option value="Engineering">Engineering</option>
-                                        <option value="Business">Business</option>
+                                        <option value="CSAI" id="CSAI">CSAI</option>
+                                        <option value="Science" id="Science">Science</option>
+                                        <option value="Engineering" id="Engineering">Engineering</option>
+                                        <option value="Business" id="Business">Business</option>
                                     </select>
                                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -122,20 +122,20 @@ export default function SignUp() {
                                     Major
                                 </label>
                                 <div className="inline-block relative w-[350px]">
-                                    <select onChange={(input) => setMajor(input.target.value)} className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" required>
+                                    <select onChange={(input) => setMajor(input.target.value)} id="major" className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" required>
                                         <option>choose your Major</option>
-                                        <option value="SWD">SWD</option>
-                                        <option value="DSAI">DSAI</option>
-                                        <option value="IT">IT</option>
-                                        <option value="Business">Business</option>
-                                        <option value="BMS">BMS</option>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Nanotechnology">Nanotechnology</option>
-                                        <option value="NanoScience">NanoScience</option>
-                                        <option value="Envirmontal">Envirmontal</option>
-                                        <option value="Renewable">Renewable</option>
-                                        <option value="CIE">CIE</option>
-                                        <option value="Aerospace">Aerospace</option>
+                                        <option value="SWD" id="SWD">SWD</option>
+                                        <option value="DSAI" id="DSAI">DSAI</option>
+                                        <option value="IT" id="IT">IT</option>
+                                        <option value="Business" id="Business">Business</option>
+                                        <option value="BMS" id="BMS">BMS</option>
+                                        <option value="Physics"  id="Physics">Physics</option>
+                                        <option value="Nanotechnology" id="Nanotechnology">Nanotechnology</option>
+                                        <option value="NanoScience" id="NanoScience">NanoScience</option>
+                                        <option value="Envirmontal" id="Envirmontal">Envirmontal</option>
+                                        <option value="Renewable" id="Renewable">Renewable</option>
+                                        <option value="CIE" id="CIE">CIE</option>
+                                        <option value="Aerospace" id="Aerospace">Aerospace</option>
                                     </select>
                                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                                         <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>

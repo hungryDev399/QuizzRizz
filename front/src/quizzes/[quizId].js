@@ -27,7 +27,7 @@ export default function Quiz() {
 			body: JSON.stringify({answers})
 		})
 		.then(response => response.json())
-		.then(data => { navigate('/quizzes/results', { state:  { data } }) })
+		.then(data => { navigate('/quizzes/results', { state:  { data, numberOfQuestions:questions.length } }) })
 		.catch(error => { console.error('Error:', error) });
 	};
 
