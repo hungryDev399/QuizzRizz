@@ -21,4 +21,4 @@ ENV NAME World
 
 # Run app.py when the container launches
 # CMD ["python", "back/manage.py", "migrate;", "python", "back/manage.py", "runserver", "0.0.0.0:8000"]
-CMD ["sh", "-c", "python back/manage.py migrate && python back/manage.py runserver 0.0.0.0:8000"]
+CMD ["sh", "-c", "python back/manage.py makemigrations && python back/manage.py migrate && python back/manage.py runserver 0.0.0.0:8000"]
