@@ -33,5 +33,5 @@ jobs:
         run: |
           cd back
           docker build . -t  ${{ secrets.REGISTRY_NAME }}.azurecr.io/django-backend:latest
-          docker login  -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
+          docker login  ${{ secrets.REGISTRY_NAME }}.azurecr.io -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
           docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/django-backend:lastest
