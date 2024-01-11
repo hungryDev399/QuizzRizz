@@ -1,4 +1,3 @@
-import React from "react";
 import GettingStarted from "./components/gettingStarted";
 import OurStory from "./components/ourStory";
 import FeatureSelection from "./components/feature-selection";

@@ -1,28 +1,83 @@
-import React from "react";
-import DropDown from "./components/DropDown";
-export default function signUp() {
-    // const [choices, setChoices] = useState({});
-    // const handleChoiceSelection = (questionId, selectedChoice) => {
-	// 	setChoices(prevChoices => ({
-	// 		...prevChoices,
-	// 		[questionId]: selectedChoice
-	// 	}));
-	// };
+import React, {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 
-    // const handleSubmit = () => {
-	// 	const quiz_id = quizID;
-	// 	const student_id = 202201863; 
-	// 	fetch(`http://127.0.0.1:8000/api/quizzes/${quiz_id}/${student_id}`, {
-	// 		method: 'POST',
-	// 		headers: {
-	// 		'Content-Type': 'application/json'
-	// 		},
-	// 		body: JSON.stringify({answers})
-	// 	})
-	// 	.then(response => response.json())
-	// 	.then(data => { navigate('/quizzes/results', { state:  { data } }) })
-	// 	.catch(error => { console.error('Error:', error) });
-	// };
+export default function SignUp() {
+    const navigate = useNavigate();
+    const [name,setName]= useState("");
+	const [email,setEmail] = useState("");
+	const [phone, setPhone] = useState("");
+	const [password, setPassword] = useState("");
+	const [confirmPassword, setConfirmPassword] = useState("");
+	const [nationalId, setNationalId] = useState("");
+	const [universityId, setUniversityId] = useState("");
+	const [school, setSchool] = useState("");
+    const [major, setMajor] = useState("");
+    const [signUpStatus, setSignUpStatus] = useState();
+
+
+    const handleSubmit = (event) => {
+		event.preventDefault();
+		if (password == confirmPassword){
+            if (email[0] == "s"){
+                fetch(`http://127.0.0.1:8000/api/register/student`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        name: name,
+                        phone_number: phone,
+                        national_id: nationalId,
+                        school: school,
+                        major: school,
+                        concentration: major,
+                        student_id: universityId,
+                        password: password
+                    })
+                })
+                .then(response => {
+                    if (response.status === 200) {
+                        console.log("done");
+                        navigate('../signIn');
+                    }
+                    else {
+                        setSignUpStatus(0);
+                    }
+                })
+                .catch(error => { console.error('Error:', error) });
+		    }
+            else {
+                fetch(`http://127.0.0.1:8000/api/register/instructor`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        name: name,
+                        phone_number: phone,
+                        national_id: nationalId,
+                        school: school,
+                        major: school,
+                        concentration: major,
+                        instructor_id: universityId,
+                        password: password
+                    })
+                })
+                .then(response => {
+                    if (response.status === 200) {
+                        console.log("done");
+                        navigate('/');
+                    }
+                    else {
+                        setSignUpStatus(0);
+                    }
+                })
+                .catch(error => { console.error('Error:', error) });
+            }
+	    }
+	};
 
 	return (
 		<div className="justify-between">
@@ -33,76 +88,62 @@ export default function signUp() {
 							<div className="self-stretch text-zinc-900 text-5xl leading-[72px] max-md:max-w-full max-md:text-4xl max-md:leading-[67px]">
 								Sign Up
 							</div>
-                            <form className="flex flex-col items-stretch mt-8 max-md:max-w-full">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                    Name
-                                </label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="Joe"
-                                />
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
-                                    Email
-                                </label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="s-firstname.lastname@zeawilcity.edu.eg"
-                                />
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
-                                    Phone number
-                                </label>
-                                <input
-                                    type="number"
-                                    id="phone"
-                                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="s-firstname.lastname@zeawilcity.edu.eg"
-                                />
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
-                                    Password
-                                </label>
-                                <input
-                                    type="password"
-                                    id="password"
-                                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="******************"
-                                />
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
-                                    Confirm Password
-                                </label>
-                                <input
-                                    type="password"
-                                    id="confirm_password"
-                                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="******************"
-                                />
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
-                                    National id
-                                </label>
-                                <input
-                                    type="number"
-                                    id="national_id"
-                                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="12345678901234"
-                                />
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
-                                    University id
-                                </label>
-                                <input
-                                    type="number"
-                                    id="university_id"
-                                    className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="12345678901234"
-                                />
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
-                                    School
-                                </label>
-                                <DropDown width= "w-[350px]" defaultOption="choose your school" options={["CSAI", "Science", "Business"]}/>
+                            <form  onSubmit={handleSubmit}className="flex flex-col items-stretch mt-8 max-md:max-w-full">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"> Name </label>
+                                <input onChange={(input) => {setName(input.target.value)}} type="text" id="name" className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="Joe" required/>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4"> Email </label>
+                                <input onChange={(input) => {setEmail(input.target.value)}} type="email" id="email" className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="s-firstname.lastname@zeawilcity.edu.eg" required/>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4"> Phone number </label>
+                                <input onChange={(input) => {setPhone(input.target.value)}} type="number" id="phone" className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="01234567890" required/>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4"> Password </label>
+                                <input onChange={(input) => {setPassword(input.target.value)}} type="password" id="password" className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="**********" required/>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4"> Confirm Password </label>
+                                <input onChange={(input) => {setConfirmPassword(input.target.value)}} type="password" id="confirm_password" className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="**********" required/>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4"> National id </label>
+                                <input onChange={(input) => {setNationalId(input.target.value)}} type="number" id="national_id" className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="12345678901234" required/>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4"> University id </label>
+                                <input onChange={(input) => {setUniversityId(input.target.value)}} type="number" id="university_id" className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-[350px] py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-balck" placeholder="12345678901234" required/>
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">School</label>
+                                <div className="inline-block relative w-[350px]">
+                                    <select onChange={(input) => setSchool(input.target.value)} className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" required>
+                                        <option>choose your school</option>
+                                        <option value="CSAI">CSAI</option>
+                                        <option value="Science">Science</option>
+                                        <option value="Engineering">Engineering</option>
+                                        <option value="Business">Business</option>
+                                    </select>
+                                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                        <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                    </div>
+                                </div>
+
+
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
                                     Major
                                 </label>
-                                <DropDown width= "w-[350px]" defaultOption="choose your major" options={["CSAI", "Science", "Business"]}/>
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-4">
-                                    Concentrations
-                                </label>
-                                <DropDown width= "w-[350px]" defaultOption="choose your concentrations" options={["CSAI", "Science", "Business"]}/>
-                                <input type="submit" className="text-zinc-50 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch rounded bg-black mt-8 px-8 py-4 max-md:px-5"/>
+                                <div className="inline-block relative w-[350px]">
+                                    <select onChange={(input) => setMajor(input.target.value)} className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" required>
+                                        <option>choose your Major</option>
+                                        <option value="SWD">SWD</option>
+                                        <option value="DSAI">DSAI</option>
+                                        <option value="IT">IT</option>
+                                        <option value="Business">Business</option>
+                                        <option value="BMS">BMS</option>
+                                        <option value="Physics">Physics</option>
+                                        <option value="Nanotechnology">Nanotechnology</option>
+                                        <option value="NanoScience">NanoScience</option>
+                                        <option value="Envirmontal">Envirmontal</option>
+                                        <option value="Renewable">Renewable</option>
+                                        <option value="CIE">CIE</option>
+                                        <option value="Aerospace">Aerospace</option>
+                                    </select>
+                                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                        <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                    </div>
+                                </div>
+                                
+                                <input type="submit" className="cursor-pointer text-zinc-50 text-center text-sm font-medium leading-5 whitespace-nowrap justify-center items-stretch rounded bg-black mt-4 px-8 py-4 max-md:px-5"/>
+								{signUpStatus == 0 ? <p className="text-red-500">The Information you have entered is incorrect.</p>:null}
                             </form>
 						</div>
 					</div>

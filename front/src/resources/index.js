@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useAtom } from "jotai";
+import { signedAtom } from "../index.js";
 import NtPlaceHolder from "../components/nt-placeholder";
 import DropDown from "../components/DropDown";
 import Subject from "../components/subject";
 
 export default function Resources() {
+    const [signed, setSignedState] = useAtom(signedAtom);
     const [subjects, setSubjects] = useState([{"course_name":"Subject-1","course_code":"000"}]);
 
     useEffect(() => {
@@ -13,6 +16,7 @@ export default function Resources() {
     }, []);
   
 	return (
+        signed ? (
         <>
         <NtPlaceHolder content="Resources"/>
         <header className="bg-black flex w-full h-12 items-stretch justify-between gap-5 max-md:max-w-full max-md:flex-wrap max-md:justify-center">
@@ -35,7 +39,7 @@ export default function Resources() {
             ))
             }
         </div>
-        </>
+        </>) : <NtPlaceHolder content="You need to sign in to access this"/>
         
 	);
 }

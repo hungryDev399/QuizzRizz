@@ -15,5 +15,5 @@ class QuestionSerializer(serializers.ModelSerializer):
         if representation['choices']:
             # Convert the list to a string and replace double quotes with single quotes
             representation['choices'] = str(ast.literal_eval(
-                representation['choices'])).replace('"', "'")
+                representation['choices']))
         return representation
